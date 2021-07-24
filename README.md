@@ -1,6 +1,7 @@
 # petiteVueTransition
 ##### A transition which works without any css libraries and using web animation api under the hood,
-### brotli Size : 0.34kb
+### brotli Size ~ 0.34kb
+### Size over CDN ~ 1Kb
 #### But if you are ok with size then you can go with somewhat bigger size of 4kb then go with it,
 ```javascript
 npm i vue-petite-transition@1.1.2
@@ -47,10 +48,19 @@ npm i vue-petite-transition
 yarn add vue-petite-transition
 ```
 
-then in your main.js 
-```javascript
+#### CDN URLs
+
+##### The short CDN URL is meant for prototyping. For production usage, use a fully resolved CDN URL to avoid resolving and redirect cost:
+
+- ESM build: `https://unpkg.com/browse/vue-petite-transition@1.2.0/dist/vue-petite-transition.es.js`
+
+then in your html script where you defined your petite-vue instance  
+```html
+<script type="module">
 import { createApp } from 'petite-vue'
 import { state } from 'vue-petite-transition'
 // register the directive
 createApp().directive('state',state).mount()
+</script>
 ```
+Now Have Fun !

@@ -30,7 +30,7 @@ it support some tailwindcss style like bg-blue-500 h-10 opacity-50 p-10, convert
 ```html
 <section>
 	<button @click="show=!show">Toggle Value</button>
-	<article v-state:enter="'duration-1000'" v-state:enter-from="'transform-scale(0.9) opacity-0.2'" v-state:enter-to="transform-scale(1) opacity-1" v-state:leave="'duration-1000'" v-state:leave-from="'transform-translateX(0px) backgroundColor-#FF00'" v-state:leave-to="  backgroundColor-#FFF transform-translateX(10px)" x-state:show="show">
+	<article v-state:enter="'duration-1000'" v-state:enter-from="'transform-scale(0.9) opacity-0.2'" v-state:enter-to="'transform-scale(1) opacity-1'" v-state:leave="'duration-1000'" v-state:leave-from="'transform-translateX(0px) backgroundColor-#FF00'" v-state:leave-to="'backgroundColor-#FFF transform-translateX(10px)'" x-state:show="show">
 		<div style="width:40px; height:40px" >I can do this all demo !</div>
 	</article>
 </section>

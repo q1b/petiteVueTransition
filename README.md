@@ -1,7 +1,11 @@
 # petiteVueTransition
 ##### A transition which works without any css libraries and using web animation api under the hood,
 ### brotli Size : 0.34kb
-
+#### But if you are ok with size then you can go with 
+```javascript
+npm i vue-petite-transition@1.1.2
+```
+it support some tailwindcss style like bg-blue-500 h-10 opacity-50 p-10, convert them into objects but to reduce size I had to remove that extra layer and thinking to back with this support but with a scalable solution for this . but 1.2.0 version is not supporting any tailwindcss, it's work as shown below .
 # Important 
 ### for now it provide 
 	v-state:show

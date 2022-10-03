@@ -26,25 +26,8 @@ function microTask(cb: () => void) {
 
 export function disposables() {
     let disposables: Function[] = [];
-    let queue: Function[] = [];
 
     let api = {
-        enqueue(fn: Function) {
-            queue.push(fn);
-        },
-
-        addEventListener<TEventName extends keyof WindowEventMap>(
-            element: HTMLElement | Document,
-            name: TEventName,
-            listener: (event: WindowEventMap[TEventName]) => any,
-            options?: boolean | AddEventListenerOptions
-        ) {
-            element.addEventListener(name, listener as any, options);
-            return api.add(() =>
-                element.removeEventListener(name, listener as any, options)
-            );
-        },
-
         requestAnimationFrame(...args: Parameters<typeof requestAnimationFrame>) {
             let raf = requestAnimationFrame(...args);
             return api.add(() => cancelAnimationFrame(raf));
@@ -89,14 +72,7 @@ export function disposables() {
                 dispose();
             }
         },
-
-        async workQueue() {
-            for (let handle of queue.splice(0)) {
-                await handle();
-            }
-        },
     };
-
     return api;
 }
 

@@ -1,42 +1,21 @@
-# petiteVueTransition
-##### A transition which works without any css libraries and using web animation api under the hood,
-### brotli Size ~ 0.34kb
-### Size over CDN ~ 1Kb
-#### But if you are ok with size then you can go with somewhat bigger size of 4kb then go with it,
-```javascript
-npm i vue-petite-transition@1.1.2
-```
-it support some tailwindcss style like bg-blue-500 h-10 opacity-50 p-10, convert them into objects but to reduce size I had to remove that extra layer and thinking to back with this support but with a scalable solution for this . but 1.2.0 version is not supporting any tailwindcss, it's work as shown below 1.1.2 is compatible with 1.2.0 but 1.2.0 is not compatible with 1.1.2 sorry for that but !
-# Important 
-### for now it provide 
-	v-state:show
-	v-state:enter
-	v-state:enter-from
-	v-state:enter-to
-	v-state:leave
-	v-state:leave-from
-	v-state:leave-to
-#### A drawback is that you have to defined values as follow in example
-##### v-state:enter="' '" // using '' inside "" .
-##### second is that v-state accpets a boolean value and Must be defined at last after all others. 
+# Petite Vue Transition
 
-## How it works ?
-##### you can provide the properties and their values which you want to animate also, it follows a perticular format to define your values like color-#FFF is going to convert into 
+### Petite Transition Library for Petite Vue
+
+##### A transition which works without any css libraries and using web animation api under the hood,
+
 ```javascript
-{
-	color:#FFF;
-}
+npm i vue-petite-transition@latest
 ```
-##### Another example 
-```html
-<section>
-	<button @click="show=!show">Toggle Value</button>
-	<article v-state:enter="'duration-1000'" v-state:enter-from="'transform-scale(0.9) opacity-0.2'" v-state:enter-to="'transform-scale(1) opacity-1'" v-state:leave="'duration-1000'" v-state:leave-from="'transform-translateX(0px) backgroundColor-#FF00'" v-state:leave-to="'backgroundColor-#FFF transform-translateX(10px)'" x-state:show="show">
-		<div style="width:40px; height:40px" >I can do this all demo !</div>
-	</article>
-</section>
-```
-##### It's simple define property then it's value like property-value 
+
+### for now it provide 
+	v-transition:show
+	v-transition:enter
+	v-transition:enter-from
+	v-transition:enter-to
+	v-transition:leave
+	v-transition:leave-from
+	v-transition:leave-to
 
 #### To install it through npm 
 
@@ -52,15 +31,23 @@ yarn add vue-petite-transition
 
 ##### The short CDN URL is meant for prototyping. For production usage, use a fully resolved CDN URL to avoid resolving and redirect cost:
 
-- ESM build: `https://unpkg.com/browse/vue-petite-transition@1.2.0/dist/vue-petite-transition.es.js`
+- ESM build: `https://unpkg.com/browse/vue-petite-transition@2.0.0/dist/vue-petite-transition.es.js`
 
 then in your html script where you defined your petite-vue instance  
+
 ```html
 <script type="module">
 import { createApp } from 'petite-vue'
-import { state } from 'vue-petite-transition'
+import { transition } from 'vue-petite-transition'
 // register the directive
-createApp().directive('state',state).mount()
+createApp().directive('transition',transition).mount()
 </script>
 ```
-Now Have Fun !
+
+## Acknowledgement
+
+- [HeadlessUI](http://headlessui.dev/)
+- [CSS Based Transition VUEJS](https://vuejs.org/guide/built-ins/transition.html#css-based-transitions)
+
+
+Thanks, Now Have Fun Bye Bye !

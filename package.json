@@ -1,6 +1,6 @@
 {
   "name": "vue-petite-transition",
-  "version": "1.1.2",
+  "version": "2.0.0",
   "description": "A simple solution for transition for petite-vue .",
   "files": [
     "dist"
@@ -15,13 +15,16 @@
       "require": "./dist/vue-petite-transition.umd.js"
     }
   },
+  "types": "./dist/types/index.d.ts",
   "scripts": {
-    "build": "vite build",
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build ; tsc --emitDeclarationOnly ; mv dist/src dist/types",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "release": "node scripts/release.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sacarvy/petiteVueTransition.git"
+    "url": "git+https://github.com/vuejs/petiteVueTransition.git"
   },
   "keywords": [
     "vue-petite",
@@ -32,11 +35,20 @@
   "author": "sacarvy",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sacarvy/petiteVueTransition/issues"
+    "url": "https://github.com/sacarvy/petiteVueTransition/discussions"
   },
   "homepage": "https://github.com/sacarvy/petiteVueTransition#readme",
-  "dependencies": {
-    "petite-vue": "^0.2.3",
-    "vite": "^2.4.3"
+  "devDependencies": {
+    "@vue/reactivity": "^3.2.27",
+    "@vue/shared": "^3.2.27",
+    "chalk": "^4.1.1",
+    "conventional-changelog-cli": "^2.1.1",
+    "enquirer": "^2.3.6",
+    "execa": "^5.0.0",
+    "prettier": "^2.3.0",
+    "semver": "^7.3.5",
+    "typescript": "^4.4.3",
+    "vite": "^2.7.12",
+    "petite-vue": "^0.4.1"
   }
 }

@@ -16,6 +16,9 @@ export const transitionDirective: Directive<any> = ({
     effect,
 }) => {
     const initialDisplay = el.style.display;
+    if (arg === 'show') {
+        el.style.display = get() ? '' : 'none';
+    }
     // transition map
     const tmap = new Map();
     tmap.set(arg, [exp, modifiers]);

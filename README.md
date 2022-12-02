@@ -1,6 +1,6 @@
 # Petite Vue Transition
 
-## Petite Transition Library for Petite Vue
+## Petite Transition Library for [Petite Vue](https://github.com/vuejs/petite-vue)
 
 # Getting Started
 
@@ -18,22 +18,31 @@ pnpm i vue-petite-transition
 yarn add vue-petite-transition
 ```
 
-### CDN URLs
+### Configuration
 
-> The short CDN URL is meant for prototyping. For production usage, use a fully resolved CDN URL to avoid resolving and redirect cost:
-
-- ESM build: `https://unpkg.com/browse/vue-petite-transition@2.0.0/dist/vue-petite-transition.es.js`
-
-then in your html script where you defined your petite-vue instance  
+Then, in your html script where you defined your petite-vue instance  
 
 ```html
 <script type="module">
 import { createApp } from 'petite-vue'
-import { transition } from 'vue-petite-transition'
+// import vue-petite-transition from npm    
+import { transitionDirective } from 'vue-petite-transition'
+// or via unpkg
+import { transitionDirective } from "https://unpkg.com/vue-petite-transition?module";
+// or direct cdn for production (to avoid redirect cost)
+import { transitionDirective } from "https://unpkg.com/vue-petite-transition@2.0.0/dist/vue-petite-transition.es.js";    
+    
 // register the directive
-createApp().directive('transition',transition).mount()
+createApp().directive('transition',transitionDirective).mount()
 </script>
 ```
+
+### CDN URLs
+
+ESM build: 
+`https://unpkg.com/vue-petite-transition@2.0.0/dist/vue-petite-transition.es.js`
+
+> The short CDN URL is meant for prototyping. For production usage, use a fully resolved CDN URL to avoid resolving and redirect cost:
 
 ## provided API for `v-transition`
 
@@ -76,7 +85,7 @@ createApp().directive('transition',transition).mount()
 ```html
 <div v-scope="{ show:true }" class="h-96 w-96">
   <p>show: {{ show }}</p>
-    <button @click="show = !show" class="px-2 bg-slate-900 py-0.5 flex items-center justify-center" > toggle </button>
+    <button @click="show = !show" class="px-2 bg-slate-900 text-white py-0.5 flex items-center justify-center" > toggle </button>
   <div v-transition:show="!show"
     class="p-10 bg-sky-400 opacity-0 scale-90"
     v-transition:enter="duration-1000 transition-[opacity,transform]"
